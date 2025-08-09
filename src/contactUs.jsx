@@ -125,7 +125,7 @@ const ContactUs = () => {
                     {/* Back Side */}
                     <div className="absolute w-full h-full backface-hidden bg-white/20 p-3 md:p-4 rounded-lg flex items-center justify-center transform-rotate-y-180">
                       <p className="flex items-center text-sm md:text-base">
-                        <FaPhone className="mr-1 md:mr-2" /> +91 94223 08688
+                        <FaPhone className="mr-1 md:mr-2" /> +91 9422308688
                       </p>
                     </div>
                   </motion.div>
@@ -134,7 +134,7 @@ const ContactUs = () => {
                 <div className="mobile-card block md:hidden bg-white/10 p-3 rounded-lg">
                   <p className="font-medium text-base">Omanand Swami </p>
                   <p className="flex items-center text-sm mt-1">
-                    <FaPhone className="mr-1" /> +91 94223 08688
+                    <FaPhone className="mr-1" /> +91 9422308688
                   </p>
                 </div>
               </div>

@@ -36,6 +36,7 @@ const Rounds = () => {
             }
         }
 
+        
     ];
 
     // Animation variants for the main container to orchestrate children animations
