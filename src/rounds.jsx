@@ -145,7 +145,7 @@ const Rounds = () => {
                     viewport={{ once: true, amount: 0.5 }}
                     transition={{ duration: 1, ease: "easeOut" }}
                 >
-                    Rounds of the Battle
+                    Rounds
                 </motion.h2>
 
                 <motion.div

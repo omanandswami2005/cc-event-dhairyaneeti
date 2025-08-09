@@ -179,6 +179,7 @@ const SponsorsSpeakers = () => {
                   </a>
                 )}
               </div>
+              
             </motion.div>
           ))}
         </div>
