@@ -139,7 +139,7 @@ const ContactUs = () => {
                 </div>
               </div>
             </div>
-
+            
             <div>
               <h3 className="text-lg md:text-xl font-semibold text-[#E6C28B] flex items-center mb-2">
                 <FaEnvelope className="mr-2 md:mr-3 text-xl md:text-2xl text-[#FFD700]" />
