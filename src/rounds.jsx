@@ -28,7 +28,7 @@ const Rounds = () => {
             }
         },
         {
-            title: "Ashtaprahar (The Unbroken Code)",
+            title: "AkhandAnvaya (The Unbroken Code)",
             description: "A relentless 24-hour hackathon where creativity meets endurance, and only the most innovative solutions prevail.",
             position: {
                 desktop: { top: "70%", left: "75%" },
