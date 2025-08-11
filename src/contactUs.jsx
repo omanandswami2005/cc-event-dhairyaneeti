@@ -111,7 +111,6 @@ const ContactUs = () => {
                 <div className="desktop-card perspective-1000 hidden md:block">
                   <motion.div
                     className="relative w-full h-20 md:h-24 preserve-3d"
-                    
                     initial="front"
                     whileHover="back"
                     transition={{ duration: 0.6 }}
@@ -166,20 +165,27 @@ const ContactUs = () => {
             </div>
           </motion.div>
 
-          {/* Right Column: Map */}
-          <motion.div variants={itemVariants}>
+          {/* Right Column: Interactive Map Button */}
+          <motion.div variants={itemVariants} className="flex flex-col items-center justify-center">
             <h3 className="text-lg md:text-xl font-semibold text-[#E6C28B] mb-2">
               Our Location on Map
             </h3>
-            <div className="mt-2">
-              <iframe
-                className="w-full h-64 md:h-80 lg:h-96 rounded-lg border-2 border-[#FFD700]"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3780.5712039185974!2d73.74891767499322!3d18.60123036682553!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2b9b099f982ef%3A0xe4b7759f68bc9d8e!2sJSPM%20Rajarshi%20Shahu%20College%20Of%20Engineering%20Tathawade!5e0!3m2!1sen!2sin!4v1710612345678"
-                allowFullScreen
-                loading="lazy"
-                title="Event Location Map"
-              ></iframe>
-            </div>
+            <motion.a
+              href="https://maps.app.goo.gl/1693gQQtsQUcA5yw9"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{
+                scale: 1.08,
+                boxShadow: "0 0 24px #FFD700",
+                backgroundColor: "rgba(255, 215, 0, 0.15)",
+              }}
+              whileTap={{ scale: 0.97 }}
+              className="mt-6 px-8 py-4 rounded-xl bg-[#FFD700]/20 border-2 border-[#FFD700] text-[#FFD700] font-bold text-lg md:text-xl flex items-center gap-3 transition-all duration-200 shadow-lg hover:bg-[#FFD700]/30 hover:text-[#222]"
+              style={{ fontFamily: "'MedievalSharp', cursive" }}
+            >
+              <FaMapMarkerAlt className="text-2xl" />
+              View on Google Maps
+            </motion.a>
           </motion.div>
         </div>
       </motion.div>
