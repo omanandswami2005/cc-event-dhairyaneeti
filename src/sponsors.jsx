@@ -68,16 +68,16 @@ const SponsorsSpeakers = () => {
   };
 
   return (
-   <section className="py-10 relative overflow-hidden">
-  <div
-    className="absolute inset-0 transform rotate-180 scale-x-[-1]"
-    style={{
-      backgroundImage: `url(${bgImage})`,
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      zIndex: -1,
-    }}
-  />
+    <section className="py-10 relative overflow-hidden">
+      <div
+        className="absolute inset-0 transform rotate-180 scale-x-[-1]"
+        style={{
+          backgroundImage: `url(${bgImage})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          zIndex: -1,
+        }}
+      />
       <div className="text-center">
         <motion.h2
           className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#f4e1c1] border-b-4 border-[#D2691E] font-[MedievalSharp] inline-block"
@@ -141,11 +141,11 @@ const SponsorsSpeakers = () => {
             MeetUp Speakers
           </motion.h3>
         </div>
-        <div className=" flex items-center justify-center gap-4">
+        <div className="flex flex-wrap items-center justify-center gap-4">
           {speakers.map((speaker, index) => (
             <motion.div
               key={index}
-              className="bg-[#FFF8DC] w-64 h-80 p-4 rounded-lg shadow-lg border-2 border-[#8B4513] text-center"
+              className="bg-[#FFF8DC] w-full sm:w-64 h-auto sm:h-80 p-4 rounded-lg shadow-lg border-2 border-[#8B4513] text-center"
               variants={cardVariants}
               initial="hidden"
               whileInView="visible"
@@ -157,7 +157,11 @@ const SponsorsSpeakers = () => {
                 transition: { duration: 0.3 }
               }}
             >
-              <img src={speaker.image} alt={speaker.name} className="mx-auto mb-4 w-24 h-24 object-contain rounded-full" />
+              <img
+                src={speaker.image}
+                alt={speaker.name}
+                className="mx-auto mb-4 w-20 h-20 sm:w-24 sm:h-24 object-contain rounded-full"
+              />
               <p className="text-lg font-bold text-[#4B2C20] font-[MedievalSharp]">{speaker.name}</p>
               <p className="text-sm text-[#5A3E2B] italic">{speaker.channel}</p>
               <div>
@@ -165,7 +169,13 @@ const SponsorsSpeakers = () => {
                   <>
                     <p className="text-xs text-[#4B2C20] mt-1">YouTube: {speaker.subscribers}</p>
                     <p className="text-xs text-[#4B2C20]">Instagram: {speaker.followers}</p>
-                  </>) : (<><br></br><p className="text-xs text-[#4B2C20]">Chief Executive Officer</p></>)}
+                  </>
+                ) : (
+                  <>
+                    <br />
+                    <p className="text-xs text-[#4B2C20]">Chief Executive Officer</p>
+                  </>
+                )}
               </div>
               <div className="flex justify-center gap-4 mt-3">
                 {speaker.youtube && (
@@ -179,10 +189,10 @@ const SponsorsSpeakers = () => {
                   </a>
                 )}
               </div>
-              
             </motion.div>
           ))}
         </div>
+
       </div>
     </section>
   );

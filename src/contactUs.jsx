@@ -88,7 +88,7 @@ const ContactUs = () => {
                     {/* Front Side */}
                     <div className="absolute w-full h-full backface-hidden bg-white/10 p-3 md:p-4 rounded-lg flex items-center">
                       <p className="font-medium text-base md:text-lg">
-                        Parth Kulkarni : +91 8080681792
+                        Khushi Rane: +91 9765596486
                       </p>
                     </div>
                     {/* Back Side */}
@@ -101,9 +101,9 @@ const ContactUs = () => {
                 </div>
                 {/* Mobile Card */}
                 <div className="mobile-card block md:hidden bg-white/10 p-3 rounded-lg">
-                  <p className="font-medium text-base">Parth Kulkarni</p>
+                  <p className="font-medium text-base">Khushi Rane</p>
                   <p className="flex items-center text-sm mt-1">
-                    <FaPhone className="mr-1" /> +91 8080681792
+                    <FaPhone className="mr-1" /> +91 9765596486
                   </p>
                 </div>
 
@@ -119,7 +119,7 @@ const ContactUs = () => {
                     {/* Front Side */}
                     <div className="absolute w-full h-full backface-hidden bg-white/10 p-3 md:p-4 rounded-lg flex items-center">
                       <p className="font-medium text-base md:text-lg">
-                        Omanand Swami : +91 94223 08688
+                        Shloka Mengade: +91 9518787409
                       </p>
                     </div>
                     {/* Back Side */}
@@ -132,9 +132,9 @@ const ContactUs = () => {
                 </div>
                 {/* Mobile Card */}
                 <div className="mobile-card block md:hidden bg-white/10 p-3 rounded-lg">
-                  <p className="font-medium text-base">Omanand Swami </p>
+                  <p className="font-medium text-base">Shloka Mengade</p>
                   <p className="flex items-center text-sm mt-1">
-                    <FaPhone className="mr-1" /> +91 9422308688
+                    <FaPhone className="mr-1" /> +91 9518787409
                   </p>
                 </div>
               </div>
