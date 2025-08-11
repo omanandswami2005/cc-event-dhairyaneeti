@@ -5,7 +5,7 @@ import "@fontsource/medievalsharp";
 
 const Prizing = () => {
   const prizes = [
-    { title: "Only Competition", price: "₹349" },
+    { title: "Only Competition", price: "₹399" },
     { title: "Competition + Meet-Up", price: "₹499" }
   ];
 
