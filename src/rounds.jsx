@@ -1,4 +1,5 @@
 import React from "react";
+import { FaBookOpen } from "react-icons/fa";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import foot from "./assets/foot2.png";
 import bgImage from "./assets/bg6.png";
@@ -135,90 +136,105 @@ const Rounds = () => {
     };
 
     return (
-        <section id="rounds">
-            <div className="min-h-screen w-full flex flex-col items-center justify-start text-center bg-cover bg-center select-none noselect py-10 overflow-hidden px-4"
-                style={{ backgroundImage: `url(${bgImage})` }}>
+       <section id="rounds">
+    <div
+        className="min-h-screen w-full flex flex-col items-center justify-start text-center bg-cover bg-center select-none noselect py-10 overflow-hidden px-4"
+        style={{ backgroundImage: `url(${bgImage})` }}
+    >
+        <motion.h2
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#f4e1c1] border-b-4 border-[#D2691E] font-[MedievalSharp] mt-8 sm:mt-14"
+            initial={{ opacity: 0, y: -50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+        >
+            Rounds
+        </motion.h2>
 
-                <motion.h2
-                    className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#f4e1c1] border-b-4 border-[#D2691E] font-[MedievalSharp] mt-8 sm:mt-14"
-                    initial={{ opacity: 0, y: -50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.5 }}
-                    transition={{ duration: 1, ease: "easeOut" }}
-                >
-                    Rounds
-                </motion.h2>
+        <motion.div
+            className="relative w-full h-[600px] sm:h-[700px] md:h-[800px] max-w-screen-xl mx-auto"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+        >
+            {/* Render Footprints Paths - Hide on mobile for cleaner look */}
+            {!isMobile &&
+                rounds.map((round, index) =>
+                    index < rounds.length - 1 && (
+                        <motion.div key={`path-${index}`} variants={footprintPathVariants}>
+                            {generateFootprints(
+                                getPosition(round),
+                                getPosition(rounds[index + 1]),
+                                index,
+                                isMobile
+                            )}
+                        </motion.div>
+                    )
+                )}
 
-                <motion.div
-                    className="relative w-full h-[600px] sm:h-[700px] md:h-[800px] max-w-screen-xl mx-auto"
-                    variants={containerVariants}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, amount: 0.2 }}
-                >
-                    {/* Render Footprints Paths - Hide on mobile for cleaner look */}
-                    {!isMobile && rounds.map((round, index) => (
-                        index < rounds.length - 1 && (
-                            <motion.div key={`path-${index}`} variants={footprintPathVariants}>
-                                {generateFootprints(
-                                    getPosition(round),
-                                    getPosition(rounds[index + 1]),
-                                    index,
-                                    isMobile
-                                )}
-                            </motion.div>
-                        )
-                    ))}
+            {/* Render Rounds */}
+            {rounds.map((round, index) => {
+                const position = getPosition(round);
+                return (
+                    <motion.div
+                        key={index}
+                        className="absolute flex flex-col items-center mt-6"
+                        style={{
+                            top: position.top,
+                            left: position.left,
+                            x: "-50%",
+                            y: "-50%",
+                            maxWidth: isMobile ? "280px" : "none"
+                        }}
+                        variants={roundItemVariants}
+                    >
+                        <motion.div
+                            animate={{
+                                scale: [1, 1.1, 1],
+                                transition: { duration: 2, repeat: Infinity, ease: "easeInOut" }
+                            }}
+                        >
+                            <FaMapMarkerAlt className="text-red-600 text-3xl sm:text-4xl md:text-5xl drop-shadow-lg" />
+                        </motion.div>
 
-                    {/* Render Rounds */}
-                    {rounds.map((round, index) => {
-                        const position = getPosition(round);
-                        return (
-                            <motion.div
-                                key={index}
-                                className="absolute flex flex-col items-center mt-6"
-                                style={{
-                                    top: position.top,
-                                    left: position.left,
-                                    x: "-50%", // Corrected: Use x for horizontal translation
-                                    y: "-50%", // Corrected: Use y for vertical translation
-                                    // Ensure cards stay within viewport on mobile
-                                    maxWidth: isMobile ? "280px" : "none"
-                                }}
-                                variants={roundItemVariants}
-                            >
-                                <motion.div
-                                    animate={{
-                                        scale: [1, 1.1, 1],
-                                        transition: { duration: 2, repeat: Infinity, ease: "easeInOut" }
-                                    }}
-                                >
-                                    <FaMapMarkerAlt className="text-red-600 text-3xl sm:text-4xl md:text-5xl drop-shadow-lg" />
-                                </motion.div>
+                        <motion.div
+                            className="bg-[#FFF8DC] p-3 sm:p-4 rounded-lg shadow-lg w-48 sm:w-52 md:w-56 lg:w-64 text-center border-2 border-[#8B4513] mt-1 card-glow mx-2"
+                            whileHover={{
+                                scale: isMobile ? 1.05 : 1.1,
+                                y: isMobile ? -3 : -5,
+                                boxShadow: "0px 15px 30px rgba(0,0,0,0.5)",
+                                transition: { duration: 0.3 }
+                            }}
+                        >
+                            <h3 className="text-sm sm:text-base md:text-lg font-bold text-[#4B2C20] font-[MedievalSharp] leading-tight">
+                                {round.title}
+                            </h3>
+                            <p className="text-[#5A3E2B] italic text-xs sm:text-sm font-serif my-2 leading-relaxed">
+                                {round.description}
+                            </p>
+                        </motion.div>
+                    </motion.div>
+                );
+            })}
+        </motion.div>
 
-                                <motion.div
-                                    className="bg-[#FFF8DC] p-3 sm:p-4 rounded-lg shadow-lg w-48 sm:w-52 md:w-56 lg:w-64 text-center border-2 border-[#8B4513] mt-1 card-glow mx-2"
-                                    whileHover={{
-                                        scale: isMobile ? 1.05 : 1.1, // Less aggressive scaling on mobile
-                                        y: isMobile ? -3 : -5,
-                                        boxShadow: "0px 15px 30px rgba(0,0,0,0.5)",
-                                        transition: { duration: 0.3 }
-                                    }}
-                                >
-                                    <h3 className="text-sm sm:text-base md:text-lg font-bold text-[#4B2C20] font-[MedievalSharp] leading-tight">
-                                        {round.title}
-                                    </h3>
-                                    <p className="text-[#5A3E2B] italic text-xs sm:text-sm font-serif my-2 leading-relaxed">
-                                        {round.description}
-                                    </p>
-                                   
-                                </motion.div>
-                            </motion.div>
-                        );
-                    })}
-                </motion.div>
-            </div>
-        </section>
+        {/* Rule Book Download */}
+        <motion.a
+            href="/RULEBOOK.pdf"
+            download
+            className=" font-[MedievalSharp] rulebook-btn mt-10"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+        >
+            <FaBookOpen className="icon" />
+            Download Rule Book
+        </motion.a>
+    </div>
+</section>
+
     );
 };
 
